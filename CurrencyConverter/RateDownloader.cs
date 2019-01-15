@@ -14,7 +14,6 @@ namespace CurrencyConverter
         public async Task GetCurrencyRate(string currency)
         {
             RootObject data;
-            Display display = new Display();
 
             try
             { 
@@ -23,12 +22,13 @@ namespace CurrencyConverter
                      string url = $"http://api.nbp.pl/api/exchangerates/rates/a/{currency}/?format=JSON";
                      var json = await httpClient.GetStringAsync(url);
                      data = JsonConvert.DeserializeObject<RootObject>(json);
-                     display.DisplayRate(data);
+                    Display.Instance.DisplayRate(data);
                 }
             }
             catch
             {
-                display.DisplayError();
+                Display.Instance.DisplayError();
+
             }
         }
     }
