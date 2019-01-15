@@ -11,7 +11,7 @@ namespace CurrencyConverter
 {
     public class RateDownloader
     {
-        public async void GetCurrencyRate(string currency)
+        public async Task GetCurrencyRate(string currency)
         {
             RootObject data;
             Display display = new Display();

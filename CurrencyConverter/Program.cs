@@ -11,7 +11,7 @@ namespace CurrencyConverter
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             bool exit = false;
             while (exit == false)
@@ -19,8 +19,7 @@ namespace CurrencyConverter
             Console.WriteLine("Enter shortcut for currency (ex. USD)");
             string currency = Console.ReadLine();
             RateDownloader rate = new RateDownloader();
-            rate.GetCurrencyRate(currency);
-            Thread.Sleep(1000);
+            await rate.GetCurrencyRate(currency);
             }
         }
     }
